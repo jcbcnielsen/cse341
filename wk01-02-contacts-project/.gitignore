@@ -11,3 +11,6 @@ package-lock.json
 
 # Ignore the rest client testing file
 testrestclient.http
+
+# Ignore the swagger document development file
+swagger.js
