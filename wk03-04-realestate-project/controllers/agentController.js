@@ -3,18 +3,18 @@ const agentController = {};
 
 agentController.getAllAgents = async function(req, res) {
     // Get all the agent data from the model
-    const agents = await agentModel.getAllAgents();
+    const dbRes = await agentModel.getAllAgents();
 
     // Send the data to the user as JSON
-    res.json(agents);
+    res.status(dbRes[0]).json(dbRes[1]);
 }
 
 agentController.getAgentById = async function(req, res) {
     // Get the agent data from the model
-    const agent = await agentModel.getAgentById(req.params.agent_id);
+    const dbRes = await agentModel.getAgentById(req.params.agent_id);
 
     // Send the data to the user as JSON
-    res.json(agent);
+    res.status(dbRes[0]).json(dbRes[1]);
 }
 
 agentController.createAgent = async function(req, res) {

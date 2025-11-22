@@ -3,18 +3,18 @@ const houseController = {};
 
 houseController.getAllHouses = async function(req, res) {
     // Get all house data from the model
-    const houses = await houseModel.getAllHouses();
+    const dbRes = await houseModel.getAllHouses();
 
     // Send data to the user as JSON
-    res.json(houses);
+    res.status(dbRes[0]).json(dbRes[1]);
 }
 
 houseController.getHouseById = async function(req, res) {
     // Get house data from the model
-    const house = await houseModel.getHouseById(req.params.house_id);
+    const dbRes = await houseModel.getHouseById(req.params.house_id);
 
     // Send the data to the user as JSON
-    res.json(house);
+    res.status(dbRes[0]).json(dbRes[1]);
 }
 
 houseController.createHouse = async function(req, res) {
