@@ -1,0 +1,303 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Wk03-04-RealEstate-Project API",
+    "description": "API for the CSE341 Choice Project",
+    "version": "1.0.0"
+  },
+  "host": "https://cse341-realestate.onrender.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/agents/all": {
+      "get": {
+        "description": "Get all Real Estate Agent Data",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/agents/{agent_id}": {
+      "get": {
+        "description": "Get one Real Estate Agent's Data by ID",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "description": "Update one Real Estate Agent's Data by ID",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "John Doe"
+                },
+                "email": {
+                  "example": "john.doe@email.com"
+                },
+                "phone": {
+                  "example": 5551234567
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete one Real Estate Agent's Data by ID",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/agents/new": {
+      "post": {
+        "description": "Create new Real Estate Agent Data",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "John Doe"
+                },
+                "email": {
+                  "example": "john.doe@email.com"
+                },
+                "phone": {
+                  "example": 5551234567
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/houses/all": {
+      "get": {
+        "description": "Get all House Data",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/houses/{house_id}": {
+      "get": {
+        "description": "Get one House's Data by ID",
+        "parameters": [
+          {
+            "name": "house_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "description": "Update one House's Data by ID",
+        "parameters": [
+          {
+            "name": "house_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "example": "1234 Address Road, City, State"
+                },
+                "area": {
+                  "example": 1000
+                },
+                "floors": {
+                  "example": 2
+                },
+                "basement": {
+                  "example": "Finished"
+                },
+                "bedrooms": {
+                  "example": 3
+                },
+                "bathrooms": {
+                  "example": 4
+                },
+                "price": {
+                  "example": 500000
+                },
+                "status": {
+                  "example": "For Sale"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete one House's Data by ID",
+        "parameters": [
+          {
+            "name": "house_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/houses/new": {
+      "post": {
+        "description": "Create new House Data",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "example": "1234 Address Road, City, State"
+                },
+                "area": {
+                  "example": 1000
+                },
+                "floors": {
+                  "example": 2
+                },
+                "basement": {
+                  "example": "Finished"
+                },
+                "bedrooms": {
+                  "example": 3
+                },
+                "bathrooms": {
+                  "example": 4
+                },
+                "price": {
+                  "example": 500000
+                },
+                "status": {
+                  "example": "For Sale"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# Each item listed will be ignored by git, and not added to the github repository
+
+# Node packages can be very large, and are not necessary for the repo
+node_modules
+
+# .env is for local use only
+.env
+
+# Ignore the lock file
+package-lock.json
+
+# Ignore the rest client testing file
+testrestclient.http
+
+# Ignore the swagger document development file
+swagger.js
