@@ -1,4 +1,5 @@
 const express = require("express");
+const { requiresAuth } = require("express-openid-connect");
 const houseRouter = new express.Router();
 const houseValidator = require("../utilities/houseValidator");
 const houseController = require("../controllers/houseController");
@@ -20,6 +21,7 @@ houseRouter.get(
 // Route to POST the creation of a new house
 houseRouter.post(
     "/new",
+    requiresAuth(),
     houseValidator.houseCreationRules(),
     houseValidator.checkDataValidation,
     houseController.createHouse
@@ -28,6 +30,7 @@ houseRouter.post(
 // Route to PUT an update to a house by id
 houseRouter.put(
     "/:house_id",
+    requiresAuth(),
     houseValidator.houseIdRules(),
     houseValidator.houseUpdateRules(),
     houseValidator.checkDataValidation,
@@ -37,6 +40,7 @@ houseRouter.put(
 // Route to DELETE a house by id
 houseRouter.delete(
     "/:house_id",
+    requiresAuth(),
     houseValidator.houseIdRules(),
     houseValidator.checkDataValidation,
     houseController.deleteHouse

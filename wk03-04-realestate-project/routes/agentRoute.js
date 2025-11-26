@@ -1,4 +1,5 @@
 const express = require("express");
+const { requiresAuth } = require("express-openid-connect");
 const agentRouter = new express.Router();
 const agentValidator = require("../utilities/agentValidator");
 const agentController = require("../controllers/agentController");
@@ -20,6 +21,7 @@ agentRouter.get(
 // Route to POST the creation of a new agent
 agentRouter.post(
     "/new",
+    requiresAuth(),
     agentValidator.agentCreationRules(),
     agentValidator.checkDataValidation,
     agentController.createAgent
@@ -28,6 +30,7 @@ agentRouter.post(
 // Route to PUT an update to an agent by an agent id
 agentRouter.put(
     "/:agent_id",
+    requiresAuth(),
     agentValidator.agentIdRules(),
     agentValidator.agentUpdateRules(),
     agentValidator.checkDataValidation,
@@ -37,15 +40,10 @@ agentRouter.put(
 // Route to DELETE an agent by an agent id
 agentRouter.delete(
     "/:agent_id",
+    requiresAuth(),
     agentValidator.agentIdRules(),
     agentValidator.checkDataValidation,
     agentController.deleteAgent
 );
-
-// Route to add a house to an agent by agent and house ids
-// /:agent_id/add/:house_id
-
-// Route to remove a house from an agent by agent and house ids
-// /:agent_id/remove/:house_id
 
 module.exports = agentRouter;
